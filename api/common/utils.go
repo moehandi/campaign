@@ -2,9 +2,9 @@ package common
 
 import (
 	"encoding/json"
+	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
 	"net/http"
 	"os"
-	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
 )
 
 type (
@@ -24,7 +24,7 @@ type (
 		Server,
 		//Port,
 		MongoDBHost, DBUser, DBPwd, MongoDBName string
-		LogLevel                                     int
+		LogLevel int
 	}
 )
 

@@ -1,8 +1,8 @@
 {
-  "Server"      : "localhost:8000",
-  "MongoDBHost" : "127.0.0.1",
-  "MongoDBUser"	: "",
-  "MongoDBPwd"	: "",
-  "MongoDBName" : "alodokter_tmc",
-  "LogLevel"    : 3
+  "Server"      : "0.0.0.0:8080",
+  "MongoDBHost" : "127.0.0.1:27017",
+  "MongoDBUser"	: "campaigns",
+  "MongoDBPwd"	: "password",
+  "MongoDBName" : "campaigns",
+  "LogLevel"    : 2
 }

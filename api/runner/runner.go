@@ -6,8 +6,16 @@ import (
 	"github.com/moehandi/campaign/api/common"
 	"net/http"
 	"github.com/Sirupsen/logrus"
+	"runtime"
+	"log"
 )
 
+func init() {
+	// Verbose logging with file name and line number
+	log.SetFlags(log.Lshortfile)
+	// Use all CPU Cores
+	runtime.GOMAXPROCS(runtime.NumCPU())
+}
 
 func Start() {
 	router := routers.InitRoutes()

@@ -2,9 +2,9 @@ package common
 
 import (
 	"log"
-	"time"
-
 	"gopkg.in/mgo.v2"
+	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
+	//"time"
 )
 
 var session *mgo.Session
@@ -12,26 +12,39 @@ var session *mgo.Session
 func GetSession() *mgo.Session {
 	if session == nil {
 		var err error
-		session, err = mgo.DialWithInfo(&mgo.DialInfo{
-			Addrs:    []string{AppConfig.MongoDBHost},
-			Username: AppConfig.DBUser,
-			Password: AppConfig.DBPwd,
-			Timeout:  60 * time.Second,
-		})
+		//session, err = mgo.DialWithInfo(&mgo.DialInfo{
+		//	Addrs:    []string{AppConfig.MongoDBHost},
+		//	Username: AppConfig.DBUser,
+		//	Password: AppConfig.DBPwd,
+		//	Timeout:  60 * time.Second,
+		//	Database: AppConfig.MongoDBName,
+		//	//Auth.Source: "campaigns",
+		//	//Source: "campaigns",
+		//})
+
+		//session, err = mgo.Dial("mongodb://campaigns:password@127.0.0.1:27017/campaigns")
+		session, err = mgo.Dial("mongodb://campaigns:password@127.0.0.1:27017/campaigns?authSource=campaigns")
+
 		if err != nil {
-			log.Fatalf("[GetSession]: %s\n", err)
+			logrus.Fatalf("[GetSession]: %s\n", err)
+		} else {
+			logrus.Info("[GetSession]: SUCCEED...")
 		}
 	}
 	return session
 }
 func createDbSession() {
 	var err error
-	session, err = mgo.DialWithInfo(&mgo.DialInfo{
-		Addrs:    []string{AppConfig.MongoDBHost},
-		Username: AppConfig.DBUser,
-		Password: AppConfig.DBPwd,
-		Timeout:  60 * time.Second,
-	})
+	//session, err = mgo.DialWithInfo(&mgo.DialInfo{
+	//	Addrs:    []string{AppConfig.MongoDBHost},
+	//	Username: AppConfig.DBUser,
+	//	Password: AppConfig.DBPwd,
+	//	//Auth.Source: "campaigns",
+	//	Timeout:  60 * time.Second,
+	//
+	//})
+
+	session, err = mgo.Dial("mongodb://campaigns:password@127.0.0.1:27017/campaigns?authSource=campaigns")
 	if err != nil {
 		log.Fatalf("[createDbSession]: %s\n", err)
 	}

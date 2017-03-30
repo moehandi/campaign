@@ -9,11 +9,12 @@ import (
 	"github.com/moehandi/campaign/api/routers"
 	"runtime"
 	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
+	"log"
 )
 
 func init() {
 	// Verbose logging with file name and line number
-	//log.SetFlags(log.Lshortfile)
+	log.SetFlags(log.Lshortfile)
 	// Use all CPU Cores
 	runtime.GOMAXPROCS(runtime.NumCPU())
 }
