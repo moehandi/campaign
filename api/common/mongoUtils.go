@@ -3,7 +3,7 @@ package common
 import (
 	"log"
 	"gopkg.in/mgo.v2"
-	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
+	"github.com/Sirupsen/logrus"
 	//"time"
 )
 

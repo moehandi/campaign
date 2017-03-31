@@ -5,10 +5,10 @@ import (
 
 	"github.com/moehandi/gokyl"
 	"github.com/moehandi/campaign/api/common"
-	_ "github.com/moehandi/campaign/api/common"
+	//_ "github.com/moehandi/campaign/api/common"
 	"github.com/moehandi/campaign/api/routers"
 	"runtime"
-	"github.com/moehandi/imagehost/Godeps/_workspace/src/github.com/Sirupsen/logrus"
+	"github.com/Sirupsen/logrus"
 	"log"
 )
 
@@ -25,7 +25,6 @@ func main() {
 	router := routers.InitRoutes()
 
 	h := gokyl.New()
-	//h.Use(negronilogrus.NewMiddleware())
 	h.UseHandler(router)
 
 	server := &http.Server{
